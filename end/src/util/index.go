@@ -4,7 +4,7 @@ import (
 	"net/http"
 )
 
-var Public = "D:\\go_language\\React-Go\\src\\public" // 静态文件存储路径
+var Public = "D:\\私活\\BMS\\end\\src\\public" // 静态文件存储路径
 var PublicImage = Public + "\\img\\"
 
 func GetQuestValue(value *http.Request, args ...string) map[string]string {

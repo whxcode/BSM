@@ -4,7 +4,6 @@ import (
 	"React-Go/src/controller"
 	"React-Go/src/data"
 	"React-Go/src/model"
-	"React-Go/src/util"
 	_ "database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
@@ -13,6 +12,7 @@ import (
 
 func main() {
 	handler := data.CreateServe()
+	config := data.CreateConfig()
 	model.MyServe = handler
 	serve := &http.Server{
 		Addr:    ":8000",
@@ -42,8 +42,8 @@ func main() {
 	handler.AddPost("/menuHighDel", controller.MenuHighDel)
 	// 文件系统
 	handler.AddPost("/uploadFile", controller.UploadFile)
-	// 运行静态资源文件
-	controller.RunAssetsServe(util.Public, ":8001")
 
+	// 运行静态资源文件
+	controller.RunAssetsServe(config.Assets.Public, ":8001")
 	fmt.Println(serve.ListenAndServe())
 }

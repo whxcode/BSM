@@ -3,7 +3,6 @@ package model
 import (
 	"React-Go/src/data"
 	"encoding/json"
-	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"log"
@@ -19,14 +18,11 @@ var MyServe *data.MyServe
 
 // 读取配置文件
 func init() {
-	configFile := "D:\\go_language\\React-Go\\src\\config\\index.json"
+	configFile := "D:\\私活\\BMS\\end\\src\\config\\index.json"
 	fs, _ := os.Open(configFile)
 	config := data.CreateConfig()
 	json.NewDecoder(fs).Decode(config)
 
-	fmt.Println(configFile)
-	fmt.Println(config.Mysql, config.Assets)
-	// os.Exit(0)
 	dsn := strings.Join([]string{config.Mysql.User, ":", config.Mysql.Password, "@tcp", "(",
 		config.Mysql.Host, ":", config.Mysql.Port, ")", "/", config.Mysql.Data, config.Mysql.Other,
 	}, "")
