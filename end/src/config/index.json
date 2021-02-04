@@ -1,0 +1,13 @@
+{
+  "mysql": {
+    "host": "localhost",
+    "port": "3306",
+    "user": "root",
+    "password": "root",
+    "data": "smart",
+    "other": "?charset=utf8mb4&parseTime=True"
+  },
+  "assets": {
+    "public": "D:\\go_language\\React-Go\\src\\public"
+  }
+}
